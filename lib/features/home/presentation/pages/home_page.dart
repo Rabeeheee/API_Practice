@@ -8,6 +8,8 @@ import 'package:grocery_app/features/home/presentation/widgets/home_content.dart
 import 'package:grocery_app/features/home/presentation/widgets/home_error.dart' as error_widget;
 import 'package:grocery_app/features/home/presentation/widgets/home_loading.dart' as loading_widget;
 import 'package:grocery_app/features/notifications/presentation/bloc/notifications_bloc.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -57,7 +59,7 @@ class HomePage extends StatelessWidget {
         currentIndex: 0,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Iconify(Mdi.store),
             label: 'Home',
           ),
           BottomNavigationBarItem(
@@ -65,12 +67,12 @@ class HomePage extends StatelessWidget {
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            label: 'Wishlist',
+            icon: Iconify(Mdi.cart),
+            label: 'My order',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
-            label: 'Profile',
+            label: 'Account',
           ),
         ],
       ),

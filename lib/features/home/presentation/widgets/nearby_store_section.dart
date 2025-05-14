@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/features/home/domain/entities/store.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/academicons.dart';
+import 'package:iconify_flutter/icons/akar_icons.dart';
+import 'package:iconify_flutter/icons/ant_design.dart';
+import 'package:iconify_flutter/icons/bx.dart';
+import 'package:iconify_flutter/icons/iconoir.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 
 class NearbyStoresSection extends StatelessWidget {
   final List<Store> stores;
@@ -35,13 +42,14 @@ class NearbyStoreCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.asset(
-            'assets/images/store_placeholder.png',
-            height: 100,
-            width: 100,
+            'assets/images/nearby.png',
+            height: 80,
+            width: 72,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               return Container(
@@ -57,8 +65,9 @@ class NearbyStoreCard extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.only(left: 12.0, bottom: 30),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -76,9 +85,9 @@ class NearbyStoreCard extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            store.address,
+                            "Sweets, North Indian",
                             style: TextStyle(
-                              color: Colors.grey.shade600,
+                              color: const Color.fromARGB(255, 0, 0, 0),
                               fontSize: 12,
                             ),
                             maxLines: 1,
@@ -87,77 +96,100 @@ class NearbyStoreCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
+                    
+                    Column(
+                      children: [
+
+                        Row(
+                          children: [
+                            Icon(Icons.star_rounded, color: Color(0xff505050),size: 16,),
+                            Text(" 4.1",style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xff505050)),),
+                          ],
+                        ),
+                        Text(
+                          '${store.timeMinutes} mins',
+                          style: TextStyle(
+                            color: Colors.orange.shade800,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                
+                Row(
+                  children: [
+                   
+                    Text(
+                      'Site No - 1',
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                    Text(" | "),
+                    Text(
+                      '${store.distance} km',
+                      style: const TextStyle(fontSize: 12), 
+                    ),
+                  ],
+                ),
+                Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 8,
-                        vertical: 4,
+                        vertical: 2,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.orange.shade100,
+                        color: Color.fromARGB(255, 222, 222, 222),
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: Text(
-                        '${store.timeMinutes} mins',
+                        'Top Store',
                         style: TextStyle(
-                          color: Colors.orange.shade800,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          color: Color(0xff505050),
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                      size: 16,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '${store.rating}',
-                      style: const TextStyle(fontSize: 12),
-                    ),
-                    const SizedBox(width: 16),
-                    Text(
-                      '${store.distance} km',
-                      style: const TextStyle(fontSize: 12),
-                    ),
-                  ],
-                ),
-                if (store.discount != null || store.itemsAvailable != null)
-                  const SizedBox(height: 8),
-                if (store.discount != null)
+                Divider(),
+                
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(
-                        Icons.local_offer,
-                        color: Colors.red,
-                        size: 16,
+                      Row(
+                        children: [
+                          Iconify(Mdi.percent_circle,
+                            color: Colors.red,
+                            size: 16,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            store.discount!,
+                            style: const TextStyle(
+                              color: Colors.red,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          ],
                       ),
-                      const SizedBox(width: 4),
-                      Text(
-                        store.discount!,
-                        style: const TextStyle(
-                          color: Colors.red,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                if (store.itemsAvailable != null)
-                  const SizedBox(height: 4),
-                if (store.itemsAvailable != null)
+                      Row(
+                        children: [
+                        Image.asset("assets/images/icon.png",height: 15,width: 15,),
                   Text(
-                    store.itemsAvailable!,
+                    "${store.itemsAvailable!}  ",
                     style: TextStyle(
-                      color: Colors.grey.shade600,
+                      color: const Color.fromARGB(255, 0, 0, 0),
                       fontSize: 12,
                     ),
                   ),
+                        ],
+                      )
+                    ],
+                  ),
+                      
+                    
+                
               ],
             ),
           ),

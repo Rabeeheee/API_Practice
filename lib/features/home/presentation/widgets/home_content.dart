@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:grocery_app/features/home/presentation/widgets/categories_section.dart';
 import 'package:grocery_app/features/home/presentation/widgets/custom_appbar.dart';
+import 'package:grocery_app/features/home/presentation/widgets/mod.dart';
 import 'package:grocery_app/features/home/presentation/widgets/nearby_store_section.dart';
 import 'package:grocery_app/features/home/presentation/widgets/promotions_section.dart';
 import 'package:grocery_app/features/home/presentation/widgets/refer_earn_banner.dart';
@@ -91,22 +92,29 @@ class HomeContent extends StatelessWidget {
             child: NearbyStoresSection(stores: state.nearbyStores),
           ),
           SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  foregroundColor: Colors.white,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                ),
-                child: const Text('View all stores'),
-              ),
+  child: Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10.0),
+    child: Align(
+      alignment: Alignment.center, // or center, or right as needed
+      child: SizedBox(
+        width: 250,
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
             ),
           ),
+          child: const Text('View all stores'),
+        ),
+      ),
+    ),
+  ),
+),
+
           const SliverToBoxAdapter(
             child: SizedBox(height: 80),
           ),
