@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/core/di/injection_container.dart' as di;
 import 'package:grocery_app/core/routes/app_router.dart';
 import 'package:grocery_app/features/home/presentation/bloc/home_bloc.dart';
@@ -29,12 +30,13 @@ class MyApp extends StatelessWidget {
         title: 'Grocery App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          
           colorScheme: ColorScheme.fromSeed(
             seedColor: const Color(0xFF4CAF50),
             primary: const Color(0xFF4CAF50),
           ),
           useMaterial3: true,
-          fontFamily: 'Poppins',
+          fontFamily: 'Quicksand',
         ),
         onGenerateRoute: AppRouter.onGenerateRoute,
         initialRoute: AppRouter.homeRoute,

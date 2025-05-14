@@ -75,7 +75,7 @@ class HomeContent extends StatelessWidget {
             ),
           ),
           const SliverToBoxAdapter(
-            child: CrazeDealsCard(),
+            child: HorizontalCrazeDeals(),
           ),
           const SliverToBoxAdapter(
             child: ReferEarnBanner(),

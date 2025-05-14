@@ -11,11 +11,8 @@ class TrendingStoresSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ensure we only show up to 4 stores
     final displayStores = stores.length > 4 ? stores.sublist(0, 4) : stores;
-    
-    // Calculate how many columns we need based on available stores
-    // Each column can have up to 2 stores
+
     final int columnsNeeded = (displayStores.length / 2).ceil();
     final int columnsToShow = columnsNeeded > 0 ? columnsNeeded : 1;
     
@@ -31,7 +28,6 @@ class TrendingStoresSection extends StatelessWidget {
             margin: const EdgeInsets.only(right: 16),
             child: Column(
               children: [
-                // First store in column (if available)
                 if (columnIndex * 2 < displayStores.length)
                   Expanded(
                     child: TrendingStoreCard(
@@ -39,14 +35,12 @@ class TrendingStoresSection extends StatelessWidget {
                     ),
                   ),
                 const SizedBox(height: 8),
-                // Second store in column (if available)
                 if (columnIndex * 2 + 1 < displayStores.length)
                   Expanded(
                     child: TrendingStoreCard(
                       store: displayStores[columnIndex * 2 + 1],
                     ),
                   ),
-                // If there's only one store in this column, add an empty expanded widget to maintain layout
                 if (columnIndex * 2 < displayStores.length && 
                     columnIndex * 2 + 1 >= displayStores.length)
                   const Expanded(child: SizedBox()),
