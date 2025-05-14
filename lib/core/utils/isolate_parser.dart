@@ -4,7 +4,7 @@ import 'dart:isolate';
 class IsolateParser {
   static Future<dynamic> parseJsonInIsolate(String jsonString) async {
     final ReceivePort receivePort = ReceivePort();
-    await Isolate.spawn(_parseJson, [receivePort.sendPort, jsonString]);
+    await Isolate.spawn(_parseJson, [receivePort.sendPort, jsonString]);          
     
     return await receivePort.first;
   }

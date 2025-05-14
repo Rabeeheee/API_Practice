@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/features/home/domain/entities/store.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/academicons.dart';
-import 'package:iconify_flutter/icons/akar_icons.dart';
-import 'package:iconify_flutter/icons/ant_design.dart';
-import 'package:iconify_flutter/icons/bx.dart';
-import 'package:iconify_flutter/icons/iconoir.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
 class NearbyStoresSection extends StatelessWidget {

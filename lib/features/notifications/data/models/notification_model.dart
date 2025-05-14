@@ -1,49 +1,52 @@
-import 'package:grocery_app/features/notifications/domain/entities/notification.dart';
+import 'package:grocery_app/features/notifications/domain/entities/notification_entity.dart';
+import 'package:intl/intl.dart';
 
 class NotificationModel extends NotificationEntity {
   const NotificationModel({
-    required String id,
+    required String image,
     required String title,
-    required String message,
-    required DateTime timestamp,
-    required bool isRead,
-    String? imageUrl,
-    String? actionUrl,
-    String? type,
+    required String body,
+    required String timestamp,
   }) : super(
-          id: id,
+          image: image,
           title: title,
-          message: message,
+          body: body,
           timestamp: timestamp,
-          isRead: isRead,
-          imageUrl: imageUrl,
-          actionUrl: actionUrl,
-          type: type,
         );
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) {
     return NotificationModel(
-      id: json['id'],
-      title: json['title'],
-      message: json['message'],
-      timestamp: DateTime.parse(json['timestamp']),
-      isRead: json['isRead'] ?? false,
-      imageUrl: json['imageUrl'],
-      actionUrl: json['actionUrl'],
-      type: json['type'],
+      image: json['image'] ?? '',
+      title: json['title'] ?? '',
+      body: json['body'] ?? '',
+      timestamp: json['timestamp'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
+      'image': image,
       'title': title,
-      'message': message,
-      'timestamp': timestamp.toIso8601String(),
-      'isRead': isRead,
-      'imageUrl': imageUrl,
-      'actionUrl': actionUrl,
-      'type': type,
+      'body': body,
+      'timestamp': timestamp,
     };
   }
+
+  // String getFormattedDate() {
+  //   try {
+  //     final dateTime = DateTime.parse(timestamp);
+  //     return DateFormat('MMM dd, yyyy').format(dateTime);
+  //   } catch (e) {
+  //     return timestamp;
+  //   }
+  // } 
+
+  // String getFormattedTime() {
+  //   try {
+  //     final dateTime = DateTime.parse(timestamp);
+  //     return DateFormat('hh:mm a').format(dateTime);
+  //   } catch (e) {
+  //     return '';
+  //   }
+  // }
 }

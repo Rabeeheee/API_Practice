@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grocery_app/features/notifications/presentation/bloc/notifications_bloc.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
@@ -56,18 +55,15 @@ class CustomAppBar extends StatelessWidget {
               const SizedBox(width: 8),
 
               // Notification icon with badge
-              BlocBuilder<NotificationsBloc, NotificationsState>(
-                builder: (context, state) {
-                  final hasUnread = state is NotificationsLoaded &&
-                      state.notifications.any((notification) => !notification.isRead);
+              
 
-                  return Stack(
+                   Stack(
                     children: [
                       IconButton(
                         icon: const Icon(Icons.notifications_outlined,color: Colors.red,),
                         onPressed: onNotificationTap,
                       ),
-                      if (!hasUnread)
+                    
                         Positioned(
                           right: 9,
                           top: 8,
@@ -93,9 +89,9 @@ class CustomAppBar extends StatelessWidget {
                           ),
                         ),
                     ],
-                  );
-                },
-              ),
+                  ),
+                
+              
 
               // Favorite icon
               IconButton(

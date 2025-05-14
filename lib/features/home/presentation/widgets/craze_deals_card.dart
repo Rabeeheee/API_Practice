@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
 
 class CrazeDealsCard extends StatelessWidget {
   const CrazeDealsCard({super.key});

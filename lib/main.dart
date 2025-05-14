@@ -1,9 +1,11 @@
+// Modified main.dart with notification support
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grocery_app/core/di/injection_container.dart' as di;
 import 'package:grocery_app/core/routes/app_router.dart';
 import 'package:grocery_app/features/home/presentation/bloc/home_bloc.dart';
-import 'package:grocery_app/features/notifications/presentation/bloc/notifications_bloc.dart';
+import 'package:grocery_app/features/notifications/presentation/bloc/notification_bloc.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,15 +23,14 @@ class MyApp extends StatelessWidget {
         BlocProvider<HomeBloc>(
           create: (_) => di.sl<HomeBloc>()..add(LoadHomeDataEvent()),
         ),
-        BlocProvider<NotificationsBloc>(
+BlocProvider<NotificationsBloc>(
           create: (_) => di.sl<NotificationsBloc>(),
-        ),
+        ),       
       ],
       child: MaterialApp(
         title: 'Grocery App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          
           colorScheme: ColorScheme.fromSeed(
             seedColor: const Color(0xFF4CAF50),
             primary: const Color(0xFF4CAF50),

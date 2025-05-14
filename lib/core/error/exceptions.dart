@@ -7,11 +7,7 @@ import 'package:grocery_app/features/home/data/repositories/home_repository_impl
 import 'package:grocery_app/features/home/domain/repositories/home_repository.dart';
 import 'package:grocery_app/features/home/domain/usecases/get_home_data.dart';
 import 'package:grocery_app/features/home/presentation/bloc/home_bloc.dart';
-import 'package:grocery_app/features/notifications/data/datasources/notifications_remote_data_source.dart';
-import 'package:grocery_app/features/notifications/data/repositories/notifications_repository_impl.dart';
-import 'package:grocery_app/features/notifications/domain/repositories/notifications_repository.dart';
-import 'package:grocery_app/features/notifications/domain/usecases/get_notifications.dart';
-import 'package:grocery_app/features/notifications/presentation/bloc/notifications_bloc.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
@@ -42,25 +38,7 @@ Future<void> init() async {
 
   // Features - Notifications
   // Bloc
-  sl.registerFactory(
-    () => NotificationsBloc(getNotifications: sl()),
-  );
-
-  // Use cases
-  sl.registerLazySingleton(() => GetNotifications(sl()));
-
-  // Repository
-  sl.registerLazySingleton<NotificationsRepository>(
-    () => NotificationsRepositoryImpl(
-      remoteDataSource: sl(),
-      networkInfo: sl(),
-    ),
-  );
-
-  // Data sources
-  sl.registerLazySingleton<NotificationsRemoteDataSource>(
-    () => NotificationsRemoteDataSourceImpl(client: sl()),
-  );
+  
 
   // Core
   sl.registerLazySingleton<NetworkInfo>(

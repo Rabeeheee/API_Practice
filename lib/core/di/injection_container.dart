@@ -8,8 +8,8 @@ import 'package:grocery_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:grocery_app/features/notifications/data/datasources/notifications_remote_data_source.dart';
 import 'package:grocery_app/features/notifications/data/repositories/notifications_repository_impl.dart';
 import 'package:grocery_app/features/notifications/domain/repositories/notifications_repository.dart';
-import 'package:grocery_app/features/notifications/domain/usecases/get_notifications.dart';
-import 'package:grocery_app/features/notifications/presentation/bloc/notifications_bloc.dart';
+import 'package:grocery_app/features/notifications/domain/usecase/get_notifications.dart';
+import 'package:grocery_app/features/notifications/presentation/bloc/notification_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 

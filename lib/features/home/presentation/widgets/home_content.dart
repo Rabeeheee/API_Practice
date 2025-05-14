@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:grocery_app/features/home/presentation/widgets/categories_section.dart';
 import 'package:grocery_app/features/home/presentation/widgets/custom_appbar.dart';
-import 'package:grocery_app/features/home/presentation/widgets/mod.dart';
 import 'package:grocery_app/features/home/presentation/widgets/nearby_store_section.dart';
 import 'package:grocery_app/features/home/presentation/widgets/promotions_section.dart';
 import 'package:grocery_app/features/home/presentation/widgets/refer_earn_banner.dart';

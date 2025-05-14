@@ -1,4 +1,5 @@
-part of 'notifications_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:grocery_app/features/notifications/domain/entities/notification_entity.dart';
 
 abstract class NotificationsState extends Equatable {
   const NotificationsState();
