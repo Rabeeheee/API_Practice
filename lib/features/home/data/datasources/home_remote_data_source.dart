@@ -15,9 +15,6 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final http.Client client;
 
   HomeRemoteDataSourceImpl({required this.client});
-
-  // In a real app, these would be fetched from an API
-  // For this example, we'll return mock data
   
   @override
   Future<List<CategoryModel>> getCategories() async {
@@ -123,8 +120,9 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
         const StoreModel(
           id: '1',
           name: 'Mithas Bhandar',
-          imageUrl: 'assets/images/mithas_bhandar.png',
+          imageUrl: 'assets/images/trending.png',
           address: 'Sector 18, Noida',
+          category: 'Sweets, North Indian',  
           rating: 4.1,
           distance: 1.4,
           timeMinutes: 40,
@@ -132,8 +130,29 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
         const StoreModel(
           id: '2',
           name: 'Mithas Bhandar',
-          imageUrl: 'assets/images/mithas_bhandar.png',
+          imageUrl: 'assets/images/trending.png',
           address: 'Sector 18, Noida',
+          category: 'Sweets, North Indian',  
+          rating: 4.1,
+          distance: 1.4,
+          timeMinutes: 40,
+        ),
+        const StoreModel(
+          id: '2',
+          name: 'Mithas Bhandar',
+          imageUrl: 'assets/images/trending.png',
+          address: 'Sector 18, Noida',
+          category: 'Sweets, North Indian',  
+          rating: 4.1,
+          distance: 1.4,
+          timeMinutes: 40,
+        ),
+        const StoreModel(
+          id: '2',
+          name: 'Mithas Bhandar',
+          imageUrl: 'assets/images/trending.png',
+          address: 'Sector 18, Noida',
+          category: 'Sweets, North Indian', 
           rating: 4.1,
           distance: 1.4,
           timeMinutes: 40,
@@ -158,6 +177,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
           name: 'Freshly Baker',
           imageUrl: 'assets/images/freshly_baker.png',
           address: 'Sector 63, Noida',
+          category: 'Bakery',  
           rating: 4.1,
           distance: 1.4,
           timeMinutes: 45,
@@ -169,6 +189,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
           name: 'Freshly Baker',
           imageUrl: 'assets/images/freshly_baker.png',
           address: 'Sector 63, Noida',
+          category: 'Bakery', 
           rating: 4.1,
           distance: 1.4,
           timeMinutes: 45,

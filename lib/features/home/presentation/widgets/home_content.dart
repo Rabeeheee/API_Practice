@@ -40,7 +40,7 @@ class HomeContent extends StatelessWidget {
               ),
               child: Text(
                 'what would you like to do today?',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold,fontSize: 18),
               ),
             ),
           ),

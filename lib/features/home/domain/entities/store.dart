@@ -6,6 +6,7 @@ class Store extends Equatable {
   final String imageUrl;
   final String address;
   final double rating;
+  final String category;
   final double distance;
   final int timeMinutes;
   final String? discount;
@@ -17,6 +18,7 @@ class Store extends Equatable {
     required this.imageUrl,
     required this.address,
     required this.rating,
+    required this.category,
     required this.distance,
     required this.timeMinutes,
     this.discount,
@@ -30,6 +32,7 @@ class Store extends Equatable {
         imageUrl,
         address,
         rating,
+        category,
         distance,
         timeMinutes,
         discount,
