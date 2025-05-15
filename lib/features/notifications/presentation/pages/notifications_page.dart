@@ -28,6 +28,7 @@ class NotificationsPage extends StatelessWidget {
               if (state.notifications.isEmpty) {
                 return EmptyNotification();
               }
+              // REFRESH INDICATIOR
               return RefreshIndicator(
                 onRefresh: () async {
                   context.read<NotificationsBloc>().add(GetNotificationsEvent());

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/features/notifications/data/models/notification_model.dart';
 import 'package:grocery_app/features/notifications/domain/entities/notification_entity.dart';
 import 'package:intl/intl.dart';
 
