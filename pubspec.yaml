@@ -34,16 +34,27 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  # Flutter checks if the new state is equal to the previous one. If they are the same, UI won’t rebuild.
   equatable: ^2.0.7
+  # just checking network status 
   internet_connection_checker: ^3.0.1
+  # make HTTP requests 
   http: ^1.4.0
+  # for functional programming
   dartz: ^0.10.1
+  # it helps you manage and access classes like your repositories, services, Blocs, etc., from anywhere in your app without passing them manually.
   get_it: ^8.0.3
+  # design pattern for bloc
   bloc: ^9.0.0
+  # for using bloc
   flutter_bloc: ^9.1.1
+  # for initialization and localization
   intl: ^0.20.2
+  # for showing time difference
   timeago: ^3.7.1
+  # for more icons
   iconify_flutter: ^0.0.7
+  # for getting more fonts
   google_fonts: ^6.2.1
 
 dev_dependencies:

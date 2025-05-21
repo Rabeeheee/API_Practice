@@ -20,7 +20,7 @@ class NotificationsRemoteDataSourceImpl implements NotificationsRemoteDataSource
     final response = await client.get(url);
     
     if (response.statusCode == 200) {
-      // Use isolate parser for better performance with large JSON
+      // Used isolate parser 
       final jsonData = await IsolateParser.parseJsonInIsolate(response.body);
       
       if (jsonData is Map<String, dynamic> && jsonData.containsKey('data')) {

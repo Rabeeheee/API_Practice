@@ -1,6 +1,9 @@
-// Option 1: Using import prefix
+
+//FLUTTER PACKAGES
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+//APP FILES
 import 'package:grocery_app/core/routes/app_router.dart';
 import 'package:grocery_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:grocery_app/features/home/presentation/widgets/categories_section.dart';
