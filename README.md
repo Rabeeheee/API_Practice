@@ -1,8 +1,10 @@
-Flutter Assignment
+# Flutter Assignment
+
 A Flutter application implementing a Home Screen and Notifications Screen based on Figma designs, with JSON data fetching, parsing (optionally using isolates), navigation, and unit tests. The app fetches notification data from a provided API endpoint and displays it on the Notifications Screen, with robust error handling and state management.
 Table of Contents
 
-Project Overview
+# Project Overview
+
 Features
 Requirements
 Setup Instructions
@@ -15,14 +17,16 @@ Assumptions and Choices
 Error Handling
 Future Improvements
 
-Project Overview
+# Project Overview
+
 This Flutter application fulfills the requirements of the Flutter Candidate Task. It consists of two screens:
 
 Home Screen: Displays a user interface based on Figma designs, with a button to navigate to the Notifications Screen.
 Notifications Screen: Fetches and displays notification data from a JSON API endpoint, parsed efficiently (optionally using isolates).
 
 The app uses Provider for state management, Dio for HTTP requests, and includes unit tests for critical components. The project follows Flutter best practices, with a clean architecture and modular code structure.
-Features
+
+# Features
 
 UI implementation of Home and Notifications Screens per Figma designs.
 Fetches JSON data from the API endpoint: test-notifications.json.
@@ -33,7 +37,7 @@ Unit tests for JSON parsing, API service, and widget rendering.
 Error handling for network issues, invalid JSON, and UI states.
 Assets (images, fonts) exported from Figma and integrated.
 
-Requirements
+# Requirements
 
 Flutter: Version 3.22.0 or higher.
 Dart: Version 3.4.0 or higher.
@@ -42,22 +46,23 @@ Dependencies: Listed in pubspec.yaml (see Dependencies).
 Figma Access: For design reference (link: Figma Design).
 Internet: Required for fetching JSON data during development.
 
-Setup Instructions
+# Setup Instructions
 
-Clone the Repository:git clone <repository-url>
+Clone the Repository:git clone [<repository-url>]https://github.com/Rabeeheee/API_Practice/)
 cd flutter_assignment
 
 
 Install Dependencies:Run the following command to install required packages:flutter pub get
 
 
-Export Figma Assets:
+# Export Figma Assets:
+
 Access the Figma design: Figma Link.
 Export images, icons, and fonts as needed.
 Place assets in the assets/ directory (already included in this project).
 
 
-Configure Assets:
+ # Configure Assets:
 ```
 Ensure pubspec.yaml includes asset paths:flutter:
   assets:
@@ -67,7 +72,7 @@ Ensure pubspec.yaml includes asset paths:flutter:
 ```
 
 
-Run the App:
+# Run the App:
 Connect a device or emulator/simulator.
 Run:flutter run
 
@@ -75,7 +80,7 @@ Run:flutter run
 
 
 
-Project Structure
+ # Project Structure
 The project follows a clean, modular structure for maintainability:
 ```
 flutter_assignment/
@@ -98,7 +103,7 @@ flutter_assignment/
 └── README.md                  # Project documentation
 ```
 
-Dependencies
+# Dependencies
 Key dependencies in pubspec.yaml:
 
 ```
@@ -118,14 +123,15 @@ dev_dependencies:
 
 ```
 
-Implementation Details
-1. Design Implementation
+ # Implementation Details
+ 
+# 1. Design Implementation
 
 Home Screen: Built with Scaffold, AppBar, and custom widgets to match Figma’s layout. Includes a button to navigate to the Notifications Screen.
 Notifications Screen: Displays a list of notifications using ListView.builder, with each item styled per Figma (e.g., title, message, timestamp).
 Assets (images, fonts) are integrated from Figma exports.
 
-2. JSON Data Fetching
+# 2. JSON Data Fetching
 
 ApiService: Uses Dio to fetch JSON from the API endpoint.
 Error handling for network failures (e.g., DioException) and HTTP errors (e.g., 404).
@@ -145,7 +151,7 @@ Example:class ApiService {
 
 ```
 
-3. JSON Parsing
+# 3. JSON Parsing
 
 NotificationModel: A Dart class with json_serializable for JSON parsing.
 JsonParser: Parses JSON into a list of NotificationModel objects.
@@ -162,7 +168,7 @@ Example:class JsonParser {
 ```
 
 
-4. State Management
+# 4. State Management
 
 Provider: Manages notification data and loading/error states.
 NotificationProvider: Fetches and parses data, notifies listeners on updates.
@@ -190,7 +196,7 @@ Example:class NotificationProvider with ChangeNotifier {
 
 
 
-5. Routing
+ # 5. Routing
 
 Uses named routes for navigation.
 ```
@@ -202,7 +208,7 @@ Defined in routes.dart:final routes = {
 
 Navigation triggered via Navigator.pushNamed(context, '/notifications').
 
-6. Isolate Justification
+# 6. Isolate Justification
 
 Isolates offload JSON parsing to a separate thread, reducing UI thread workload.
 Beneficial for large JSON responses or low-end devices, ensuring smooth animations and responsiveness.
@@ -224,7 +230,7 @@ Example test:test('Parse JSON to NotificationModel', () {
 ```
 
 
-Running the App
+# Running the App
 
 Ensure dependencies are installed (flutter pub get).
 Connect a device or start an emulator/simulator.
@@ -233,7 +239,7 @@ Run:flutter run
 
 Navigate from the Home Screen to the Notifications Screen to view fetched data.
 
-Assumptions and Choices
+# Assumptions and Choices
 
 State Management: Chose Provider for simplicity and scalability, suitable for this small app.
 HTTP Client: Used Dio for its robust error handling and configurability over http.
@@ -241,7 +247,7 @@ Isolates: Included as an optimization, though the provided JSON is small, to dem
 Testing: Focused on critical components (parsing, API, widgets) to balance coverage and development time.
 Assets: Assumed Figma exports are placed in assets/; included placeholders if unavailable.
 
-Error Handling
+# Error Handling
 
 Network Errors: Displays error messages (e.g., “No Internet”) using Provider state.
 JSON Parsing Errors: Catches FormatException and shows fallback UI.
