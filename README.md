@@ -58,12 +58,13 @@ Place assets in the assets/ directory (already included in this project).
 
 
 Configure Assets:
+```
 Ensure pubspec.yaml includes asset paths:flutter:
   assets:
     - assets/images/
     - assets/fonts/
 
-
+```
 
 
 Run the App:
@@ -76,6 +77,7 @@ Run:flutter run
 
 Project Structure
 The project follows a clean, modular structure for maintainability:
+```
 flutter_assignment/
 ├── assets/                    # Images, fonts from Figma
 │   ├── images/
@@ -94,9 +96,12 @@ flutter_assignment/
 │   └── widget_tests/
 ├── pubspec.yaml               # Dependencies and assets
 └── README.md                  # Project documentation
+```
 
 Dependencies
 Key dependencies in pubspec.yaml:
+
+```
 dependencies:
   flutter:
     sdk: flutter
@@ -111,6 +116,8 @@ dev_dependencies:
   build_runner: ^2.4.13        # Code generation
   json_serializable: ^6.8.0     # JSON serialization
 
+```
+
 Implementation Details
 1. Design Implementation
 
@@ -122,6 +129,8 @@ Assets (images, fonts) are integrated from Figma exports.
 
 ApiService: Uses Dio to fetch JSON from the API endpoint.
 Error handling for network failures (e.g., DioException) and HTTP errors (e.g., 404).
+
+```
 Example:class ApiService {
   final Dio _dio = Dio();
   Future<String> fetchNotifications() async {
@@ -134,13 +143,15 @@ Example:class ApiService {
   }
 }
 
-
+```
 
 3. JSON Parsing
 
 NotificationModel: A Dart class with json_serializable for JSON parsing.
 JsonParser: Parses JSON into a list of NotificationModel objects.
-Isolate Usage: Optionally uses Isolate.spawn to parse JSON in a background thread, preventing UI jank for large datasets. Example:class JsonParser {
+Isolate Usage: Optionally uses Isolate.spawn to parse JSON in a background thread, preventing UI jank for large datasets.
+```
+Example:class JsonParser {
   static Future<List<NotificationModel>> parseJson(String jsonString) async {
     return await Isolate.run(() {
       final jsonData = jsonDecode(jsonString) as List;
@@ -148,13 +159,14 @@ Isolate Usage: Optionally uses Isolate.spawn to parse JSON in a background threa
     });
   }
 }
-
+```
 
 
 4. State Management
 
 Provider: Manages notification data and loading/error states.
 NotificationProvider: Fetches and parses data, notifies listeners on updates.
+```
 Example:class NotificationProvider with ChangeNotifier {
   List<NotificationModel> _notifications = [];
   bool _isLoading = false;
@@ -174,17 +186,19 @@ Example:class NotificationProvider with ChangeNotifier {
     notifyListeners();
   }
 }
+```
 
 
 
 5. Routing
 
 Uses named routes for navigation.
+```
 Defined in routes.dart:final routes = {
   '/': (context) => const HomeScreen(),
   '/notifications': (context) => const NotificationsScreen(),
 };
-
+```
 
 Navigation triggered via Navigator.pushNamed(context, '/notifications').
 
@@ -201,13 +215,13 @@ ApiService: Mocks HTTP responses with Mockito to verify fetching.
 Widget Tests: Verifies Home and Notifications Screen rendering.
 Run tests:flutter test
 
-
+```
 Example test:test('Parse JSON to NotificationModel', () {
   final json = {'title': 'Test', 'message': 'Hello', 'timestamp': '2025-06-03'};
   final model = NotificationModel.fromJson(json);
   expect(model.title, 'Test');
 });
-
+```
 
 
 Running the App
